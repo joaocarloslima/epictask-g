@@ -1,7 +1,5 @@
 package br.com.fiap.epictaskapi.model;
 
-import java.util.UUID;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +11,7 @@ import javax.validation.constraints.Size;
 public class Task {
     
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private Long id;
     
     @NotBlank
     private String title;
@@ -34,11 +32,11 @@ public class Task {
         this.description = description;
     }
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

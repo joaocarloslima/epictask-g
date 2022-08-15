@@ -25,8 +25,12 @@ public class TaskService {
         return repository.save(task);
     }
 
-    public Optional<Task> get(UUID id) {
+    public Optional<Task> get(Long id) {
         return repository.findById(id);
+    }
+
+    public void remove(Long id) {
+        repository.deleteById(id);
     }
 
 }
