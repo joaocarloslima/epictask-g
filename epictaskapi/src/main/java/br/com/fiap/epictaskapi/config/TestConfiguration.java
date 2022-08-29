@@ -7,18 +7,23 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
 import br.com.fiap.epictaskapi.model.Task;
+import br.com.fiap.epictaskapi.model.User;
 import br.com.fiap.epictaskapi.repository.TaskRepository;
+import br.com.fiap.epictaskapi.repository.UserRepository;
 
 @Configuration
 public class TestConfiguration implements CommandLineRunner {
 
     @Autowired
-    TaskRepository repository;
+    TaskRepository taskRepository;
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        repository.saveAll(List.of(
+        taskRepository.saveAll(List.of(
             new Task("Modelar BD", "Modelar as tabelas do banco"),
             new Task("Protipar", "Prototipo das telas do site"),
             new Task("Modelar BD", "Modelar as tabelas do banco"),
@@ -42,6 +47,13 @@ public class TestConfiguration implements CommandLineRunner {
             new Task("Modelar BD", "Modelar as tabelas do banco"),
             new Task("Protipar", "Prototipo das telas do site")
         ));
+
+        userRepository.save(
+            new User()
+                .name("João")
+                .email("joao@fiap.com")
+                .password("123")
+        );
         
     }
     
