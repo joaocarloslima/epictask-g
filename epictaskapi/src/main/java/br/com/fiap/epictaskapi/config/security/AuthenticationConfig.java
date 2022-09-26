@@ -29,6 +29,11 @@ public class AuthenticationConfig{
                 .antMatchers(HttpMethod.DELETE, "/api/user/**").authenticated()
                 .antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
                 
+                // web
+                .antMatchers("/task/**").permitAll()
+                .antMatchers("/task/**").permitAll()
+                .antMatchers("/css/**").permitAll()
+                
                 //h2-console
                 .antMatchers("/h2-console/**").permitAll()
 
