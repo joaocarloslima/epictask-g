@@ -25,7 +25,7 @@ public class TaskWebController {
         return mav;
     }
 
-    @GetMapping("tasknew")
+    @GetMapping("new")
     public String createForm(){
         return "/task/form";
     }

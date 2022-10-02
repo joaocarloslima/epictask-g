@@ -37,7 +37,7 @@ public class AuthenticationConfig{
                 //h2-console
                 .antMatchers("/h2-console/**").permitAll()
 
-                .anyRequest().denyAll()
+                .anyRequest().permitAll()
             .and()
                 .csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)

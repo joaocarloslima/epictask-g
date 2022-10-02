@@ -30,11 +30,11 @@ public class TestConfiguration implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         taskRepository.saveAll(List.of(
-            new Task("Modelar BD", "Modelar as tabelas do banco"),
-            new Task("Protipar", "Prototipo das telas do site"),
-            new Task("Modelar BD", "Modelar as tabelas do banco"),
-            new Task("Protipar", "Prototipo das telas do site"),
-            new Task("Modelar BD", "Modelar as tabelas do banco"),
+            new Task("Modelar BD", "Modelar as tabelas do banco", 50, 90),
+            new Task("Protipar", "Prototipo das telas do site", 30, 30),
+            new Task("Modelar BD", "Modelar as tabelas do banco", 10, 25),
+            new Task("Protipar", "Prototipo das telas do site", 90, 50),
+            new Task("Modelar BD", "Modelar as tabelas do banco", 70, 0),
             new Task("Protipar", "Prototipo das telas do site"),
             new Task("Modelar BD", "Modelar as tabelas do banco"),
             new Task("Protipar", "Prototipo das telas do site"),
