@@ -187,7 +187,22 @@ textarea{
     max-height: 12rem;
 }
 
+.invalid {
+    border: 1px solid var(--primary-color)  !important;
+}
+
 #labelscore{
     margin: 1rem 0;
     font-size: 1rem;
+}
+
+.alert {
+    padding: .5rem 2rem;
+    max-width: 500px;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #58ea9557;
+    color: #58ea95;   
 }

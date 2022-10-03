@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -17,11 +19,13 @@ public class Task {
     @NotBlank
     private String title;
 
-    @NotBlank
-    @Size(min = 10)
+    @Size(min = 10, message = "A descrição deve ter pelo menos 10 caracteres")
     private String description;
 
+    @Min(1) @Max(100)
     private int score = 100;
+
+    @Min(0) @Max(100)
     private int status = 0;
 
     public Task() {
