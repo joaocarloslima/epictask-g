@@ -1,27 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://thymeleaf.org"></html>
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EpicTask</title>
-    <link rel="stylesheet" type="text/css" th:href="@{~/css/global.css}">
-</head>
+<html xmlns:th="http://thymeleaf.org">
+<head th:insert="_template :: head"></head>
 <body>
-    <header>
-        <h1>EpicTask</h1>
-    </header>
+    <header th:insert="_template :: header"></header>
 
-    <nav>
-        <ul>
-            <li class="active"><a href="#">Pendentes</a></li>
-            <li><a href="#">Concluídas</a></li>
-            <li><a href="#">Usuários</a></li>
-        </ul>
-    </nav>
+    <nav th:insert="_template :: menu('undone')"></nav>
 
     <div class="toolbar">
-        <a href="/task/new" class="button">Cadastrar Tarefa</a>
+        <a href="/task/new" sec:authorize-url="POST /task" class="button">Cadastrar Tarefa</a>
     </div>
 
     <div th:if="${message != null}" class="alert success">
@@ -45,7 +31,7 @@
                 <span th:text="${task.score + 'pts'}"></span>
             </div>
             <div class="actions">
-                <a th:href="${'/task/delete/' + task.id}">
+                <a th:href="${'/task/delete/' + task.id}" sec:authorize="hasRole('ADMIN')">
                     <span class="material-icons">delete</span>
                 </a>
                 <a th:href="${'/task/update/' + task.id}">

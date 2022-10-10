@@ -25,6 +25,14 @@ public class TaskService {
         return repository.findAll();
     }
 
+    public List<Task> listPending() {
+        return repository.findPending();
+    }
+
+    public List<Task> listComplete() {
+        return repository.findComplete();
+    }
+
     public Task save(Task task){
         return repository.save(task);
     }
@@ -36,6 +44,8 @@ public class TaskService {
     public void remove(Long id) {
         repository.deleteById(id);
     }
+
+
 
 
 

@@ -30,8 +30,9 @@ public class AuthenticationConfig{
                 .antMatchers(HttpMethod.PUT, "/api/user/**").authenticated()
                 
                 // web
-                .antMatchers("/task/**").permitAll()
-                .antMatchers("/task/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/task/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/user/**").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/task").hasRole("ADMIN")
                 .antMatchers("/css/**").permitAll()
                 
                 //h2-console
@@ -40,9 +41,12 @@ public class AuthenticationConfig{
                 .anyRequest().permitAll()
             .and()
                 .csrf().disable()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-            .and()
+                //.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .headers().frameOptions().disable()
+            .and()
+                .formLogin()
+                .successForwardUrl("/task")
+                
         ;
 
         return http.build();

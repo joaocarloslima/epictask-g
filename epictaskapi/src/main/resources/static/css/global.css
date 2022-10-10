@@ -24,6 +24,17 @@ body{
     font-size: 1.6rem;
 }
 
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.avatar{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
 a, a:visited, a:active{
     color: var(--text-color);
     text-decoration: none;
